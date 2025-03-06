@@ -1,0 +1,325 @@
+JavaScript ki madad se ham apni website aur web pages main functionality add kr skte hain jese amazon aur lenskart jesi websites main jo search ke liye options kaam kr paate hain, cart functionality, filters wagera ye sb javascript se possible hota hai
+
+console REPL use krta hai yaani read-evaluate-print-loop mtlb jo ham console window main likhte hain pehle wo read krta hai phr evaluate yaani compute ya calculate krta hai iske baad phr print krta hai aur again yehi process chalta rehta hai
+
+It's really useful to think about the problem in terms of real objects to understand the logic
+
+a varaible is simply the name of a storage location, so website main jitni bhi information hamain leni hoti hai usko ham variables main save kr rahe hote hain
+
+Variables naming convensions in javascript (identifier rules):
+all javascript variables must be identified with unique names, variables ko identifiers bhi kehte hain
+1. meaningful hon
+2. start main numbers naa hon, must begin with a letter or $ or _
+3. space naa ho
+4. dollar-sign aur underscore ke ilaawa koi aur symbol naa ho
+5. camelCase is a good practice
+6. reserved words (like javascript keywords) cannot be used as variable names  
+variable names are case sensitive (y an Y are different variables)
+way of writing identifiers = camelCase, snake_case and PascalCase
+javascript ke andr camelCase eik convention hai jbke python main snake_case use hota hai
+
+Principles of Writing Consistent, Idiomatic JavaScript = https://github.com/rwaldron/idiomatic.js/?tab=readme-ov-file#naming
+
+Console ko clear krne se jo values browser main store hogayi hain like some variables and their values, wo remove nhi hoti. Uske liye browser ko hard reload krna parta hai
+
+javascript ke andr 7 primitive data types hoti hain
+number, string, boolean, null, undefined, null, bigint, symbol
+typeof javascript main eik operator hai jo variable ya value ki type bataata hai
+number value ka type number, isi tarh koi text ya characters ka type string aur true false waali values ka type boolean hota hai javascript main
+
+positive, negative, integers aur floating numbers yaani decimal ye sb javascript ke andr numbers main aate hain in sbki type number hi hoti hai jbke other langauages jese java main float type alag hoti hai jis main decimal aate hain aur int type alag hoti hai jis main integers aate hain
+ab aesa nhi hai ke ham kitna hi bara number store kr skte hain balke number main bhi eik limit hoti hai jese agr decimal main hamne 0.99999999999999 store krwaaya to javascript isko nearest integer yaani 1 main convert krdeti hai
+
+jinko ham calculation krne ke liye use krte hain unhen operations kehte hain aur jin pr operation perform kia jaaraha ho unhen operands kehte hain aur jo operation perform karega usko operator kehte hain
+so a + b main addition ka operation perform horaha hai jis main a aur b operands hain jbke plus sign operator hai
+modulo operator (%) ko remainder operator bhi kehte hain jo 2 operands ko aapas main divide krke unka remainder deta hai, specially ye operator even aur odd numbers check krne ke liye bhi use hota hai
+exponential operator (**) ko power operator bhi kehte hain jo power nikaalne ke liye use hota hai jese 2 to the power 4 ko check krne ke liye 2**4 is tarh likhenge so 2 into 4 times, answer aayega 16.
+
+NaN eik aesi property hai jo represent krti hai not a number ko, yaani kbhi aesi calculation hojaati hain jinka answer koi valid number main nhi hota so javascript main NaN jo hai uski type number hi hai but jo value wo represent kr raha hai wo eik valid number nhi hoti
+jese 0/0 krne se NaN milta hai hamain jo eik number hi hai but ye jisko represent kr raha hai wo eik valid number nhi hai
+NaN ke sth jitne bhi operations perform hote hain un sbka result bhi NaN main hi aata hai jese NaN + 1, NaN -1, etc
+
+operator precedence (means priority) = () -> ** -> *,/,% -> +,-
+aur jahan same priority ke multiple operators aajayen wahan left to right code operations perform hote hain but multiple power operators hon to right to left code run hoga
+(5 + 2) / 7 + 1 * 2 = (7) / 7 + 1 * 2
+=> 1 + 2 = 3 is the answer.
+
+keyword javascript main kch reserved words hote hain jo specially kisi kaam ke liye use hote hain unhen ham apne kaam main use nhi kr skte jese let bhi eik keyword hai jo variables declare krne ke liye use hota hai, iske ilaawa const aur var keyword bhi use hote hain variables ke liye but maximum cases main ham let use krte hain kch is tarh:
+let variableName = 123; 
+aur ham bina value ke bhi variable declare kr skte hain yaani initialize kiye bagair like this: 
+let variableTwo; is main iski value hamain undefined milegi jiska mtlb hai ke abhi value define nhi ki gai hai  
+const keyword un variables ko declare krne ke liye use hota hai jo constant hote hain yaani jinko aap baad main change nhi karogay jese ke maths main pi jiski value 3.14 constant rehti hai change nhi hoti so isko ham const keyword se variable main save karengay
+constant variables ki values naa re assign hoti hain naa hi declare hoskti hain jbke let se bane variable ki values re assign kr skte hain ham
+var keyword eik bht puraana syntax hai jo pehle javascript main use hota tha but ab wo saare kaam let krta hai jo 2015 version main introduce hua hai so ham var ko use nhi karengay
+
+javascript main jahan 2 values ke beech main equals to (=) aajaye, iska mtlb hai ke right side ki value ko left side waali chz main store krdo
+equals to (=) ko ham javascript main assignment operator kehte hain jiska kaam hota hai right side ki value ko left side main jaakr store krwadena
+
+assignment operators ki aur bhi form hoti hain jese agr:
+a = a + 1; likhna hai to ham isko short krke a += 1; likh skte hain isi tarh -, *, /, % sbke sth kr skte hain
+
+binary operators 2 operands pr kaam krte hain jese a + b, a - b, etc
+jbke unary operators bhi hote hain jinhen sirf single operand chahiye like:
+a++ (post increment), b-- (post decrement), ++a (pre increment) aur --b (pre decrement).
+ab jahan pre hai wahan variable ki value change pehle hogi, then use hogi aur jahan post lagjaye wahan pehle use hoga variable aur phr change hogi uski value jo increment ya decrement hogi
+
+boolean represent krta hai us value ko jo true ya false ho like uska jawab yes ya no main ho
+javascript main ham kisi variable ki type bhi change kr skte hain by simply changing its value jbke other programming langauages main aesa nhi hota ke eik type define krne ke baad aap kisi variable ki type change krdo aur is phenomena ko dynamic typed kehte hain so javascript eik dynamic typed programming langauage hai
+
+Typescript javascript ka hi eik strict version hai jo static typed hai yaani eik baar Typescript main aapne kisi variable main koi bhi datatype ki value store krdi so ab aap uski type change nhi kr skte baaqi javascript pooori is main work krti hai
+Typescript design ki gai hai microsoft ki taraf se, jo ab bht saari companies use bhi kr rahi hain 
+
+jb bhi single ya double qoutes use hote hain to wo hamara string datatype ban jaata hai
+
+strings are text or sequence of characters
+so achi convention ye hai ke single character or letter ke liye single qoute use karen and baaqi eik se zaada characters aur words ya sentences ke liye double qoutes use karen
+aur agr kbhi string ke andr double qoute use krna ho so ham bahar ki taraf single qoute se string banayenge and vice versa
+same type ke qoutes ke andr same type ke qoutes nhi likh skte ye hamain error dega
+
+Programmers / computers always start counting from zero
+
+string.slice() krne se kitne characters slice hongay = iska quick shortcut hai upper bound - lower bound
+string.slice(x, y) se konse characters slice hongay = x se lekr y se pehle pehle tk ke saare hojayenge
+
+kisi bhi problem ko solve krne ke liye pehle usko small chunks main divide krna bht zaroori hai and phr un chunks ko bhi further divide kr skte hain jis se code krna bht easy hojaaata hai aur ye skill
+
+multiply aur divide pehle hota hai phr add aur subtract hota hai
+lekin ye pata hone ke baad ya zaroori naa ho tb bhi brackets lagaana achi practice hai jis se code ki readability clear hojaati hai prhna aasaan rehta hai
+
+all of the rules apply to naming varaibles wohi same rules function ko name dene ke liye use hote hain
+
+functions in javascript 3 flavours main aate hain: like sbsse simplest form of function vanilla version kehlaata hai, uske baad input yaani parameters and arguments lene waale function ko chocolate flavour keh skte hain and uske baad more complex and more useful form of functions aate hain jo input lene ke sth output bhi de skte hain
+
+return wo keyword hai jo function ke andr output dene ke liye use hota hai aur phr agr function ko variable ke sth bound krte hain to wo output save hojaata hai usi variable main sth sth function execute bhi hota hai
+
+isiliye ye return statemnet bht useful hai bcuz ye hamain allow krta hai ke ham functions ke andr aur functions use kr saken jis se code messed up bhi nhi hota
+
+Math.pow(base, exponent) = ye eik function type jo apko TO THE POWER waale numbers solve krke return krdeta hai like Math.pow(7, 2) return karega 49
+isi tarh Math.round(num) mathematiclly number ko round krke return krta hai rounded number like 2.5 ko 3 aur aur 2.4 ko 3 krdega
+
+Math.random() jo number generate krta hai wo 16 decimal place number hota hai jo 0 se 0.9999999 ke beech hota hai aur 0 to hota hai but kbhi 1 nhi hoskta
+Floating point number = a number that has decimal places
+
+https://www.youtube.com/watch?v=GtOt7EBNEwQ = Pseudorandom number generators | Computer Science | Khan Academy
+
+Comparison operators:
+=== is equal to (it also checks the data type)
+!== is not equal to
+> is greater than
+< is lesser than
+>= is greater or equal to
+<= is lesser or equal to
+== is equal to (it doesn't care about the data type)
+
+combining operators
+&& AND
+|| OR
+! NOT
+
+Leap year = agr year divisible by 4 hai aur 100 se divisible nhi hai
+but agr 4 & 100 dono se divisible hai so ab usko 400 se bhi divisible hona chahiye tbhi leap year hoga
+
+problme se code main direct jump maarna thora difficult rehta hai so beech main flowchart ka hona kaafi help krta hai that's why going through that flowchart makes alot easier to actually map the logic and then converting it to code because at the end code is simple but the logic is the path you have to take first
+
+array eik collection hai kch items ka jo aapas main relate krte hain aur eik hi variable eik hi container main store hoskte hain
+
+eik baar if ki condition true hui aur iske andr ka code execute hogaya phr neeche waale sb else if aur else ignore hojaate hain even unki condition bhi check nhi hoti
+so it's important to think about how you order your if and else-if statemnets
+
+while loops are the simplest type of loop, jo kaam kch is tarah krta hai:
+- while (something is true) {
+    do something;
+};
+so jese hi condition false hojayegi computer loop se bahar nikal kr neeche waala code execute karega
+
+for loop main condition test krne ke bajaye ham specify krte hain kitni baar loop ko run krna hai kch is tarah:
+for(start, end/condition, change){
+    do something
+} 
+so pehle variable start value lega, uske baad condition check karega and then code run krdega uske baad loop varaible change hoga phr wohi condition checks, runs the code and change the loop variable till the condition false or loop ends.
+for loop eik tarh ka syntactic sugar hai jo syntax ko aur easy aur acha banaata hai compare to while
+
+while loop eik state main code run krta rehta hai jbke for loop iterate krta hai code ko baar baar run krta hai aur kitni baar run krna hai ye ham for loop ke through bataate hain
+
+YOU ONLY REALLY LEARN WHEN YOU TRY AND FAIL AND GO THROUGH CHALLENGES
+
+same properties waale objects baar baar create krne ke liye ham constructor function ka use kr skte hain jis se baar baar properties define nhi krni parti balke just values put krke new objects ban jaate hain aur is function main 2 differene hote hain eik to first word capital rehta hai jo identify krta hai ke ye constructor function hai aur doosra ye ke constructor function se object create krte waqt function ke naam se pehle new keyword lagta hai
+method is just a function that is associated with an object
+
+json stands for javascript object notation, ye eik string format hai jo ham use krte hain data ko transfer krne ke liye over the internet because ye data bht light weight krdeta hai compressed krdeta hai aur data easily data recieve krke isko again javascript object main convert kr skte hain, but json format thora different hota hai like keys bhi strings main hoti hain, koi var keyword nhi hota and comma lagaana zaroori hota hai property ke end main kch is tarh:
+{
+    "name": "anas raza",
+    "age": 12,
+}
+parse means eik data format se doosre format main change krdena 
+
+var let aur const se jb varaible bnta hai function ke andr to in sbka local scope hai it means function ke andr hi use hoskte hain, but jb file main use hote hain ye teeno like function se bahar jb use hote hain tb inka global scope hota hai globally kahi bhi access kiye jaaskte hain.
+if-else, for loop, while loop isi tarh other than function kisi bhi curly braces yaani block ke andr jb ye var se variable bnta hai uska global scope hota hai lekin let aur const se banega to local scope hi hoga bahar se access nhi hoskta
+good practice ye hai ke var ko avoid kro aur iski jaga let use kro
+
+css ki tarah javascript bhi 3 tarah likhi jaa skti hai; inline, internal aur external but internal javascript avoid hi krni chahiye bcuz naa to wo standard hai aur phr code debug krna bhi mushkil hojaata hai
+css ko head tag ke andr aur js ko sbse last main just closing body tag se pehle link krna best practice hai taake saare content pehle load hojaye phr javascript run ho
+
+browser hamare html code ko eik dom tree main convert krdeta hai aur ye entire tree eik object ke andr hota hai jisko document kehte hain
+html tree generator = google extension hai jo visualize krke show krti hai wohi dom tree jo browser convert krta hai html code se
+firstElementChild, lastElementChild, innerHTMl
+objects inside the dom have some properties and methods ab properties object ke baare main kch describe krte hain jbke methods wo kaam hain jo obj kr skta hai
+object ki properties ham set aur get krte hain jbke methods ham call krte hain
+nmethods function hi hote hain bs wo object ke sth associate hote hain, wo kaam jo object krta ho usko nmethod kehte hain
+getElementsByTagName("h1") eik array return karega jis main saare h1 hongay aur hr h1 ke sth kch properties bhi hongi 
+getElementsByClassName("btn") eik array return karega jis main saare btn class waale elements hongay, chaahe koi eik element bhi ho tb bhi array hi return karega 
+getElementById("title") eik element hi dega instead of an array jiski id title hogi yahan single element isliye bcuz html main id unique hi honi chahiye 
+document.querySelector("h1") entire document main us object ko find karega jiske paas ye given selector ho, ye bhi single element deta hai aur is se ham kch bhi find kr skte hain chaahe wo id ho class ho tag ho bs selector dene se ham speifically koi bhi element get kr skte hain, agr more than one elements hue to phr first element laa ke dega ye
+agr all of the objects chahiye jo selector se match krta ho to phr use karenge document.querySelectorAll('.btn'), ab ye btn class waale saare elements eik array main laakr de dega
+so querySelector and querySelectorAll hi hamain use krna chahiye bcuz ye zaadaa complez cheezen bhi dhund ke laa deta hai aur yehi zaadatar use hote hain instead of getElement methods
+
+javascript se css styles likhne ke liye saari properties ke naam camelCase main likhte hain hyphen remove hojaata hai aur saari values string main aati hain just like:
+h1.style.backgroundColor = "red";
+kch properties kaam naa karen to ye resource dekh skte hain = https://www.w3schools.com/jsref/dom_obj_style.asp
+
+ab html for content, css for styles and javascript for behvaviour use hoti hai so hamain isi tarh use krna chahiye isi liye javascript se styles change krna is not a good practice aur iske liye eik method hai classList jo dom main hr object ke paas hota hai is se hamain hr element ki classes milti hain
+h1.classList.add("class-name"), h1.classList.remove("class-name") aur h1.classList.toggle("class-name") in teeno se ham kisi bhi element main particular class add kr skte hain remove kr skte hain aur toggle (yaani agr class nhi hai to add wrna remove) kr skte hain, so kch is tarh style sirf css file main rahengay aur javascript se ham classes manipulate kr skte hain
+
+innerHTML aur textContent dono same tarh kaam krte hain lekin innerHTML main ham html likh skte hain aur get bhi HTML hota hai jbke textContent main sirf text aata hai aur sirf text hi ham set kr skte hain
+
+isi tarh ham attributes bhi manipulate kr skte hain using setAttribute method jo do parameter leta hai eik attribute ka naam doosra uski value jo change krni hai
+element.attributes, element.getAttribute("attributeName")
+
+element.parentElement, element.children, element.childElementCount, previousElementSibling, nextElementSibling ye kch properties use hoti hain kisi elment se doore element pr navigate krne ke liye 
+
+document.createElement("p") se ham element create krte hain but ye abhi dom main insert nhi hota isko insert krne ke liye append methods use hote hain like appendChild(element), is method se ham element create krke kahi bhi end main insert kr skte hain
+append(element or content) se element aur string ya text bhi insert kr skte hain kisi element ke end main
+phr eik aata hai prepend(element) jo same append ki tarh kaam krta hai lekin bs ye start main insert krta hai jbke append element ke end main hr chz insert krta hai
+iske baad eik aur bhi method aata hai insertAdjacentElement(where, element) jo do parameters leta hai eik to position yaani kahan insert krna hai aapko aur doosra kia insert krna hai, position main 4 cheezen hain beforebegin, afterbegin, beforeend, afterend
+
+ab jis tarh ham elements insert krte hain isi tarh remove bhi kr skte hain using removeChild() jo parent pe use hota hai aur remove() ye direct us element pr lgta hai jisko remove krna ho, ye dono methods appendChild aur append ki tarh kaam krte hain bs wo insert krta hai aur ye remove krte hain
+
+events are signals that something has occured. (user inputs or actions),events hamain bataate hain ke page pr kch activity hui hai mtlb koi button press hua hai kch drag hua hai kch bhi hoskta hai
+ab inline events bhi hote hain jiska use krke ham inline hi JavaScript likh skte hain but wo itna effecient nhi hai aur naa hi eik good practice hai pr kch rare cases main ham ye kr skte hain
+
+ab hr element ki properties main events waali property bhi hoti hain wo 'on' se shuru hoti hain like onclick, ondrag etc, jinki value by default null rehti hai aur ham us main function use krke kch bhi kaam kr wa skte hain for example onclick ka use krke jese hi button click ho, ye kaam krdo
+function assign krte waqt call nhi krte just function ka naam dete hain event k value main aur phr wo event trigger hone ke baad function ko call krta hai khud
+onmouseenter bhi eik event hai jo kisi bhi element ko ooper mouse le jaane pr trigger hota hai 
+
+console.dir javascript ke object ki saari properties console krwaane ke liye use hota hai
+
+ab tk hamne 2 tareeqay prhe hain events pr kch action krne ke liye eik to inline tareeqa tha dom events use krne ka jo bht ineffecient tha aur doosra method tha jo ham element ki event property ki value main function assign krte the ab problem ye aati hai ke is tarh ham different functions eik hi event main assign nhi kr skte 
+so iske liye eik aur method hai obj ka addEventListener jo wait krta hai ke kab event listen ho aur kb main action perform krdu, ye method 2 parameters leta hai eik event (jese click, drag jis main 'on' hat jaata hai), doosra callback ab callback kia hota hai?
+callback wo function hote hain jo as a argument ham kisi function ko pass krte hain
+so eventlistener ki eik advantage ye hai ke jis tarh ham onclick property ki ham multiple values set nhi kr skte lekin eik single element ke liye different event listeners ham set kr skte hain
+https://www.w3schools.com/jsref/dom_obj_event.asp = html dom events (beginner friendly), isi tarh dom events mdn pr bhi hai but wo thore advanced docs hote hain us main events ke bhi types hain phr hr type ke alag events described hain
+event listeners sirf button ki hadh tk hi nhi hain balke ham page ke multiple elements ke liye events add kr skte hain
+
+eventlistener ke callback ke andr jo this hai wo usi element ya usi object ko refer krta hai jiske liye hamne event handler create kia ho
+ab eventlisteners main this ka advantage tb hota hai jb hamain multiple elements pr same eventlistener use krna ho
+- code krte hue as a good programmer ye aim hona chaihye ke code main hamne same same cheezen baar baar naa likhi hon redundancy kam krna zaroori hain redundancy kehte hain agr baar baar likhne ki zarurat nhi hai to baar baar eik hi chz naa likho 
+
+jb bhi koi event trigger hota hai to callback ke andr hamain eik default argument main event object milta hai jis main bht saari cheezen hoti hai, actually wo pointer related bht saari cheezen deta hai hamain aur ham keybaord events main bhi isko use krte hain bcuz is tarh hamain us pointer object main key aur keycode bhi milta hai jis se ham pata kr skte hain konsa key press hua hai
+
+isi tarh form ke bhi kch events hote hain jin main se sbse zaada submit event use hota hai aur iske sth event object ka eik method preventDefault() use hota hai jo form ka default prevent krta hai (yaani action waale url pr shift nhi hota same page pr rehta hai)
+
+ham form main diye gaye data ko extract krne ke liye bhi event object ka use krte hain bcuz inputs pr innerText kaam nhi krta jesa ke user value input krta hai so innerText main hamain kch nhi milta 
+user ki value get krne ke liye ham event object ki value property ka use krke data extract krte hain
+
+ab kch aur events bhi hote hain jese change aur input event, ye dono input, textarea aur select elements pr hi kaam krte hain sirf
+jo ye change event hai wo hr chote chote changes ko track nhi krta balke eik initial aur final state main koi change aata hai tb wo trigger hota hai yaani agr koi element jese input hai wo khaali aur uske andr koi value type krke input se bahar kahi bhi click kia to ye change event trigger hojayega
+lekin ab agr ham ye chahte hain ke hr change pr event trigger ho to uske liye use hota hai input event jo small small changes se bhi trigger hojaata hai but with only non character keys, arrow keys shift ctrl wagera se kch nhi hoga
+
+stack programming main eik data structure ko kehte hain, stack ka mtlb hai eik ke ooper eik layer kisi bhi chz ki like stack of plates etc, ye LIFO hota hai last in first out yaani elements hamesha top pe add hote hain aur remove bhi top se hi hojaate hain
+callstack track krta hai ke konse function ki abhi call chal rahi hai,functions ki saari calls callstack ke andr store hoti hain eik ke ooper eik, ab ye kaam is tarh krta hai ke jb jb koi x function call hota hai to wo callstack ke andr as a plate store hojaata hai aur jb wo x function poora run hojata hai phr wo usi call waali line pr aata hai aur uske neeche se continue krke code run hota hai so is tarh function ki call khatam hojaati hai aur wo stack se bhi remove ho jaata hai 
+
+function calls jo stack ke andr store hoti rehti hai one by one usko stack frame bhi kehte hain programming main
+jo variables declare hote hain function ke andr wo bhi us call ke sth store hote hain aur call stack unhen bhi track kr raha hota hai jo stack frame ke sth hi phr remove bhi hojaate hain isiliye function scope variables function ke bahar access hi nhi hote bcuz wo bhi function call ke baad remove hochuke hote hain stack se
+
+with the help of breakpoints ham JS call stack ko browser se bhi track kr skte hain, chrome devtool main source option ke andr breakpoints hote hain jis complex code debug krna easy hojaata hai, debug means apne code main bug ko find krna ke error kahan aur kiun aaraha hai
+
+JS is single threaded, jabke programming langauages single threaded aur multi threaded dono hoti hain, ab single threaded ka mtlb hai ke javascript eik waqt main eik hi kaam krti hai
+lekin kch kaam aese hote hain jo time lagaate hain jese api ko JS code ke through ham request bhejte hain aur phr wahan se response aata hai is main sometimes time lag jaata hai ya koi error aajata hai to JS wait to nhi karegi, isi tarh database main user ka data save krwaane ke liye JS code use krte hain sometimes is main time lag skta hai to agr javascript isi tarh wait krne lag gai phr to websites eik hi jaga ruk jayengi isi liye phr single threaded ke sth deal krne ke liye hamaare paas kch cheezen aati hain jin main se eik hai callbacks
+callbacks is tarh help krte hain ke hamian database ya api ke execution ke baad jo kaam krwana hota hai wo callbacks main ham dete hain
+jesa ke JS single threaded eik waqt main eik hi kaam kr skta hai to setTimeout ko execute karaane ka kaam browser krta hai bcuz wo generally    c++ main likha jaata hai aur ye langauages capable hain multiple kaam krne ke liye
+so setTimeout main bhi ab jitna delay hoga utne time tk setTimeout ko browser apne paas store krke rkhta hai aur phr execution ke waqt call stack ko de deta hai
+
+line by line code jo chalta hai eik ke baad eik run hota hai us nature ko synchronous nature kehte hain but jahan ham setTimeout, callbacks, setInterval jesi cheezen use krte hain wahan ham javascript ki nature ko asynchronous banaarahe hote hain, asynchronous ka mltb hai ke zaroori nhi hai sb line by line ho saara code eik eik krke run ho balke beech main kch extra chz bhi hoskti hai like jo code start main delay hua wo bhi beech main aake run hoskta hai isi ko asynchronous programming kehte hain so in short javascript single threaded langauages hai but wo asynchronously act krta hai bcuz kch problems aate hain unhen solve krna prta hai asynchronously
+
+ab kbhi kbhi kch kaamo main callbacks use krte krte unki nesting hojaati hai jo smjhna thora difficult hota hai aur code bhi messy hojaata hai so usko kehte hain callback hell, and then is problem ko ham again javascript ke kch advanced topics se solve krte hain jo invent hi isliye hue hain jese promises, async/await ye hamain callback hell se bachaate hain aur code ko better banaate hain
+
+promise javascript main eik object hai jo represent krta hai ke koi chz hamne kehdi ab ya to wo chz aagay jaakr complete hogi (yaani success) ya phr nhi hogi (yaani failure) aur agr success ya fail hogai to kia value ya kia error aayega as a resulting value, wo bhi is object main save hoti hai   
+promise object main do cheezen hoti hai resolve aur reject yaani wohi success aur failure callbacks jinko generally resolve, reject kehte hain
+ab hota ye hai ke jo hamara asynchronous function hai yaani jo kisi naa kisi pr dependent hota hai uske andr success, failure ke callbacks lene ke bajaye ham us main se promise obj ko return krte hain
+
+jo function promise return krta hai usko ye nhi pata ke promise success hoga ya fail hojayega wo bs ye jaanta hai ke hn mujhe kch to execute karaana hai
+promise ka result define krne ke liye ham resolve aur reject ke andr kch bhi likh skte hain jo as a result show hota hai
+promise ki kch states bhi hoti hain eik hai pending (mltb hamain nhi pata abhi fullfill hai ya reject bcuz promise complete nhi hua), doosri hoti hai rejected (yaani koi error aagaya aapke kaam main to promise reject hogaya), aur teesri fulfilled hoti hai (yaani promise complete hogaya aapka ya resolve hogaya)
+
+jesa ke promise eik obj hai to iske kch methods bhi hote hain like .then aur .catch method, ye dono bht zaada use hote hain
+promise ke complete hone ki 2 states hain fulfilled aur rejected agr fulfill ke baad koi kaam krwanaa ho to wo .then main kr waa skte hain aur agr error aajaye koi to phr .catch main jo code dogay wo run hoga
+
+promise chaining krne ke liye ham .then main hi eik aur promise return krta hai jiske baad uska then chalta hai mltb ye hogaya phr ye kro, ye hogaya phr ye kro, is tarh chain shuru hojaati hai aur agr koi bhi error aaya so wo catch main chala jayega but in sb ke liye must hai .then main return krna is tarh code clean bhi rehta hai
+
+promise ke results aur errors bhi hamain milte hain .then() aur .catch() main jo callback hota hai uske parameter main hamain result aur error yaani then main result aur catch main error milta hai
+ye result aur error wohi hai jo ham ooper promise banaane ke waqt resolve aur reject ke andr koi data ya kch bhi likhte hain hamain wohi phr parameters main milta hai
+
+ab async functions eik aur improved version hai javascript ka jiske throught ham asynchronous problems ko aur achi tarh solve kr skte hain aur code bhi short and easy to understand banjaata hai
+async function by default promise return krta hai chaahe ham kch kren naa karen async keyword waala function promise return karega jis main promise result undefined hota hai
+aur ham jo function se return krwaate hain wohi phr promise ke result main hamain milta hai, aur agr error aajaye to us result main error milega
+throw keyword se ham koi bhi error throw kr waa skte hain apni taraf se
+
+await keyword hamne jis function call se pehle likhdia ab wo pause krdega apne aas paas ke saare async functions ko, unhen wait krwaata hai jb tk hamari jo current function call chal rahi hai us main promise resolve ya reject naa hojaye, bs promise pending nhi rehna chahiye
+resolve aur reject ye dono promise main bht zaroori hai ye bataate hain ke promise poora hua ya reject hua aur inki basis pr hi .then(), .catch() aur await wagera aagay brhte hain code run krte hain wrna atak jayengay
+
+bht saare await ke beech main koi error aajaye to wo kis tarh handle karenge aur jo baaqi kaam jo promises pr dependent nhi hain wo bhi rukgaye to ye issue kis tarh handle hoga
+ab aata hai try catch jisko use krke ham rejections bhi handle krlete hain with await 
+try block ke andr wo code aayega jis main error ki thori si bhi possibility ho aur catch ke andr us error ko ham catch krlenge
+
+API(application programming interface) eik url link yaani wo endpoint hota hai jiske through ham server se connect hote hain request bhejte hain aur phr wahan se response aata hai, apis waiters ki tarh kaam krti hain jese user yaani JS ne order dia waiter order lega kitchen main jayega khana prepare krwaa kr waapis khaana laa kr dega isi tarh kitchen ko ham yahan server keh skte hain jin se direct ham connect nhi nhi hote ham apis se connect hote hain just like waiter aur phr apis server se response laakr hamain de deti hai in any form of data
+api eik interface yaani layer hai jo server aur user ke beech main work krti hai
+apis wese to 2 software ke beech interact krwaati hai aur usi ke liye use hoti hain but jo apis https protocol use krti hain yaani internet ke basis pr interact krwaati hain unhen ham web apis kehte hain aur programming main web development main ham web apis ka hi use krte hain
+aaj kal web apis generally hamain json format main data return krti hain
+
+kch apis paid bhi hoti hain aur eik api key bhi zaroori hoti hai kch apis main jo as a access token kaam krti hai lekin ham abhi free apis hi use karenge jahan kisi key ki zaroorat nhi hoti
+some apis: https://dog.ceo/api/breeds/image/random, https://catfact.ninja/fact, https://developers.google.com/maps/documentation, https://www.boredapi.com/api/activity (ye nhi chal rahi)
+
+JSON eik data format hai jiski full form hai javascript object notation, ab iske naam se hi pata chal raha hai ke ye javascript object jesa hai but thora difference hai in dono main jese json main keys bhi string main aati hain aur undefined koi nhi value nhi hoti json main
+pehle hamaare paas data XML main aata tha jo html jesa dikhta tha but ab zaadatar data json format main hi dekhne ko milega kch rare cases main xml mil skta hai 
+
+ab jo json data hamain milta wo eik complete string milta hai jo ham directly access nhi kr skte, iske liye hamain isko parse krwana parta hai javascript object main, parse yaani eik data format se doosre data format main change krna
+JSON.parse(str) se from string data to javascript object change hojaata hai
+JSON.stringigy(obj) se from javascript obj to again json string format ban jaata hai
+
+api ko test krne ke liye kch tools hote hain jo users ke liye nhi balke developers ke liye hote hain, kch famouse tools hain like postaman, hoppscotch
+abhi ke liye ham hoppscotch hi use karenge bcuz koi signup ya download nhi krna prta online available hai aur dono ka interface wagera almost sb same hi hai
+
+AJAX (asynchronous javascript and xml) ye eik complete process jis ke through ham apni api call krte hain aur phr wahan se repsonse main data aata hai aur ye poora process asynchronously work krta hai, pehle data xml main aata tha isi liye isko asynchronous javascript and xml hi kehte hain
+ham apis ko request bhejte hain aur phr response aata hai ye sb asynchronously work krta hai, javascript ka code execution rukta nhi hai balke jese hi api se response aata hai to js uske sth bhi deal krleta hai, so yahi se ye term ajax aati hai
+aur jo ham api calls kr rahe hote hain unhen ajax calls bhi kehte hain 
+inshort kehne ka mtlb ye hai ke ye apis se dealing ka poora process asynchronously work krta hai jiski waja se jitni bhi calls jaarahi ho webpage main apka web page reload nhi hoga balke khud hi jese jese result aayega javascript code ke hisaaab se handle krleta hai
+
+jb ham koi request http pr bhejrahe hote hain to iske sth associated kch verbs hote hain jinhen http verbs bhi kehte hain jese get (mtlb ham kch get kr rahe hain), post (koi data post kr rahe hain bhejrahe hain), delete (kch data delete kr rahe hain)
+
+response ke sth hamain kch status codes bhi milte hain jese kch famous status codes to ye hain:
+200 means OK
+404 means Not found (yaani ye address exist hi nhi krta)
+400 means Bad Request 
+500 means Internal Server Error (website main koi internal sever error hai)
+informational response ke liye 100 - 199
+successful repsonse ke liye 200 - 299
+redirectional response ke liye 300 - 399 (yaani jb eik page se doosre page pr ham automatically redirect hojayen tb)
+client error response ke liye 400 - 499
+server error response ke liye 500 - 599
+
+ham apne api url yaani endpoint ko additional information bhi deskte hain using query string ya phr routes
+query string means eik key value pair lagaa skte hain jo valid ho us api ke liye like www.google.com ye to eik url hai but iske aagay ham add kr skte hain 'www.google.com/search?q=mango' jis main q hamari key hai aur mango hamari value hai, to is tarh google direct mango search page kholdega
+so ham isko additional information derahe hain ke google kholo but mango search page dikhaana
+isi tarh ham different apis ke sth add kr skte hain aur jo query string valid nhi hota api usko khud hi ignore krdeti hai instead of giving 404 error
+jb hamare paas api main ya api docs main colon ke baad kch likha ho like url/:id, url/:num, ya phr kch is tarh like {{id}}, <id> to in sbka mtlb hai ye eik variable hai id ya num ke naam se jo ham valid value se replace karenge slash ke baad id de kr to phr hamain particular data milega usi id ka
+so is tarh query string, routes aur routes main jo variables hote hain unke through ham additional information dekr specific data api se mangwa skte hain
+https://api.potterdb.com/, http://universities.hipolabs.com/search?name=pakistan ye hain do apis jo hamne use ki 
+
+ham api request ke sth headers main bhi additional information bhej skte hain jisko http header kehte hain, headers request ke andr bhi aur response ke andr bhi additional information supply krne ke kaam aate hain
+headers main ham bataa skte hain ke data kis format main chahiye, date, metadata(data about data) ye sb extra cheezen ham bhej skte hain
+
+ab javascript ka use krke ham api kese bhej skte hain aur repsonse kese get kr skte hain so pehle ham in sb kaam ke liye use krte the XMLHttpRequest but iske sth bht issues the infact promises, async await is pr kaam nhi krte the so ab ham fetch method ka use krte hain jo simple eik url le kr hamari api pr request send krta hai
+ab fetch method hamain eik promise return krta hai so ham promise methods ka use krke apni api ke data ke sth kaam kr skte hain
+api jese hi kch headers deti hai so promise resolve hojaata hai aur hamain headers show hote hain jbke sahi form main api se data nhi milta body main ReadableStream milti hai yaani data hai but ham usko read nhi kr paa rahe so hamain read krne ke liye data parse krna prta hai using json method
+aur ye json se hamara data parse hojaata hai readable form main convert hojaata hai aur ye method bhi hamain eik promise return krta hai
+

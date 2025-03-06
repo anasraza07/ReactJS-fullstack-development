@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in weeks</title>
+</head>
+
+<body>
+    <script>
+        function lifeInWeeks(age) {
+            // 90 se age ko minus kro
+            var yearsLeft = 90 - age;
+
+            // jo ans aaye usko * kro 365 se
+            var days = yearsLeft * 365;
+
+            // usi ko * kro 52 se
+            var weeks = yearsLeft * 52;
+
+            // usi ko * kro 12 se
+            var months = yearsLeft * 12;
+
+            console.log("You have " + days + " days, " + weeks + " weeks, and " + months + " months left.");
+        }
+
+        lifeInWeeks(12);
+    </script>
+</body>
+
+</html>

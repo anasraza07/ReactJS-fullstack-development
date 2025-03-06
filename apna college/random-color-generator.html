@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        p {
+            border: 2px solid black;
+            margin-inline: auto;
+            width: 50%;
+            height: 200px;
+            font-size: 20px;
+        }
+
+
+        button {
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Generate a random color</h1>
+    <button>Generate Color</button>
+    <p>This is your new color</p>
+
+    <script>
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", function(){
+            // 2. ye color text h1 ki jaga aajaye
+            const h1 = document.querySelector("h1");
+            h1.innerText = generateRandomColor();
+
+            // 3. aur color style hojaye p ke andr
+            const p = document.querySelector("p");
+            p.style.backgroundColor = generateRandomColor();
+        });
+        // 1. jese hi btn click ho eik random rgb color banjaye
+            // a. red, green aur blue 3 random numbers create hongay
+        function generateRandomColor() {
+            const red = Math.floor(Math.random() * 256)
+            const green = Math.floor(Math.random() * 256)
+            const blue = Math.floor(Math.random() * 256)
+            return "rgb(" + red + ", " + green + ", " + blue + ")";
+            // rgb(120, 123, 10)
+        }
+
+    </script>
+</body>
+
+</html>

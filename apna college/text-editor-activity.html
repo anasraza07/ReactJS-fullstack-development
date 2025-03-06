@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text editor activity</title>
+</head>
+
+<body>
+    <h1>My Text Editor</h1>
+    <p></p>
+    <input type="text" placeholder="type something">
+
+    <script>
+        let input = document.querySelector("input");
+        input.addEventListener("input", function () {
+            let p = document.querySelector("p");
+            p.innerText = this.value
+        })
+    </script>
+</body>
+
+</html>

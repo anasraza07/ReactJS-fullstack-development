@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class report</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Input:
+        const classReportJSON = '[{"name":"Ali","marks":{"Math":85,"English":78,"Science":90}},{"name":"Ahmed","marks":{"Math":60,"English":55,"Science":65}},{"name":"Sara","marks":{"Math":92,"English":39,"Science":25}}]'
+
+        // Output:
+        // Har student ke total aur average marks
+        // Highest Scorer: Sara (92%)
+        // Pass Percentage: 100%
+
+        // [{
+        //         "name": "Ali",
+        //         "marks": { "Math": 85, "English": 78, "Science": 90 }
+        //     },
+        //     {
+        //         "name": "Ahmed",
+        //         "marks": { "Math": 60, "English": 55, "Science": 65 }
+        //     },
+        //     {
+        //         "name": "Sara",
+        //         "marks": { "Math": 92, "English": 89, "Science": 95 }
+        //     }]
+
+        const classReport = JSON.parse(classReportJSON);
+
+        let highestScore = 0;
+        let highestScorer;
+        let highestScorerPercentage;
+        let studentFailCount = 0;
+
+        for (let i = 0; i < classReport.length; i++) {
+            const studentMarksArray = Object.values(classReport[i].marks);
+            const totalMarks = studentMarksArray.length * 100;
+            let obtainedMarks = studentMarksArray[0];
+            let avgMarks = studentMarksArray[0];
+
+            for (j = 1; j < studentMarksArray.length; j++) {
+                obtainedMarks += studentMarksArray[j];
+                avgMarks = Math.round(obtainedMarks / studentMarksArray.length)
+            }
+
+            if (obtainedMarks > highestScore) {
+                highestScore = obtainedMarks;
+                highestScorer = classReport[i].name;
+                highestScorerPercentage = (highestScore / totalMarks * 100).toFixed(2);
+            }
+
+            let studentPercentage = obtainedMarks / totalMarks * 100;
+
+            if (studentPercentage < 60) {
+                studentFailCount++;
+            };
+
+            console.log("Total marks of " + classReport[i].name + ": " + obtainedMarks);
+            console.log("Average marks of " + classReport[i].name + ": " + avgMarks);
+        }
+
+        let passingPercentage = Math.round((classReport.length - studentFailCount) / classReport.length * 100);
+
+        console.log("Highest scorer of the class is: " + highestScorer + " (" + highestScorerPercentage + "%)");
+        console.log("Passing percentage of class is " + passingPercentage + "%");
+    </script>
+</body>
+
+</html>

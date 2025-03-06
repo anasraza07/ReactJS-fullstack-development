@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales report</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Input:
+        const salesReportJSON = '[{ "product": "Laptop", "price": 50000, "quantity": 5 }, { "product": "Mobile", "price": 20000, "quantity": 10 }, { "product": "Tablet", "price": 15000, "quantity": 7 }]';
+
+        // Sales Report generator: Generate a report with the data given in JSON format.
+
+        // Output:
+        // Total Sales: 6,50,000
+        // Highest Selling Product: Mobile(10 units)
+        // Lowest Selling Product: Tablet(7 units)
+
+        // [
+        //     { product: 'Laptop', price: 50000, quantity: 5 },
+        //     { product: 'Mobile', price: 20000, quantity: 10 },
+        //     { product: 'Tablet', price: 15000, quantity: 7 }
+        // ]
+
+        const salesReport = JSON.parse(salesReportJSON);
+
+        let totalSales = 0;
+        let highestSellingProduct = salesReport[0];
+        let lowestSellingProduct = salesReport[0];
+
+        for (let i = 0; i < salesReport.length; i++) {
+            totalSales += salesReport[i].price * salesReport[i].quantity;
+
+            if (salesReport[i].quantity > highestSellingProduct.quantity) {
+                highestSellingProduct = salesReport[i];
+            }
+
+            if (salesReport[i].quantity < lowestSellingProduct.quantity) {
+                lowestSellingProduct = salesReport[i].product;
+            }
+        }
+
+        console.log("Total Sales: " + totalSales.toLocaleString());
+        console.log("Highest Selling Product: " + highestSellingProduct.product + " (" + highestSellingProduct.quantity + " units)");
+        console.log("Lowest Selling Product: " + lowestSellingProduct.product + " (" + lowestSellingProduct.quantity + " units)");
+    </script>
+</body>
+
+</html>

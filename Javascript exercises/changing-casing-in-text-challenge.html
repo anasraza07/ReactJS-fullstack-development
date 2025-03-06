@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing casing in text</title>
+</head>
+
+<body>
+    <script>
+        // user se prompt main uska naam lekr first word capital baaqi sb small and then usko alert main greet krna hai
+
+        // Solution:
+
+        // 1. user se name lo 
+        // 2. usko lowercase main convert krdo
+        var userName = prompt("Enter your name").toLowerCase();
+
+        // 3. uska first letter access kro
+        // a. first letter ko uppercase main convert kro
+        var firstLetter = userName.slice(0, 1).toUpperCase();
+
+        // 4. dono ko concatenate krke alert krwaado
+        // 4. dono ko concatenate krke alert krwaado
+        alert("Hello, " + firstLetter + userName.slice(1, userName.length));
+
+    </script>
+</body>
+
+</html>

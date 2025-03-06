@@ -1,0 +1,5 @@
+sbse zaada importance inline css ki hai uske baad internal css aur phr uske baad external css in short yu kehte hain jo style sbse zaada element ke qareeb ho uski zaada importance hoti hai
+css/styles.css = current folder ke andar css folder se file load hogi
+/css/styles.css	= root folder se hi css folder ko access karega (Chahe jis file main ye link hai wo kahin bhi ho)
+./css/styles.css = current folder ke andar css folder se file load hogi
+../css/styles.css → mtlb eik folder piche jao, phir css folder dhoondho

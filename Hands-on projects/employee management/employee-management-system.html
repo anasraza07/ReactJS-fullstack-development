@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        form p {
+            font-size: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        form div {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 4px 0 4px 4px;
+            margin: 4px 0;
+        }
+
+        form button {
+            width: 100%;
+            padding: 4px;
+            margin-top: 8px;
+        }
+
+        #save-btn {
+            display: none;
+        }
+
+        #employee-data {
+            display: flex;
+            max-height: 450px;
+        }
+
+        #employee-list,
+        #employee-details {
+            border: 1px solid black;
+            padding: 0 8px;
+        }
+
+        #employee-list {
+            width: 30%;
+            overflow: auto;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        #employee-details {
+            flex: 1;
+            text-align: center;
+        }
+
+        .list-item {
+            padding: 8px 12px;
+            background-color: #F0F0F0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+            margin: 8px 0;
+        }
+
+        .list-item.selected {
+            background-color: #DBDBDB;
+        }
+
+        .list-item p {
+            margin: 0;
+            flex: 1;
+        }
+
+        .list-item button:last-child {
+            font-weight: bold;
+            color: red;
+            border: 1px solid red;
+            border-radius: 50%;
+            width: 27px;
+            padding: 2px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        #employee-details h5 {
+            font-size: 24px;
+            margin: 12px 0;
+        }
+
+        #employee-details p {
+            margin: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Employee Management System</h1>
+    <!-- <form action="#">
+        <p>Add a new Employee</p>
+        <div id="div-01">
+            <input type="text" name="" id="firstname" placeholder="First Name">
+            <input type="text" name="" id="lastname" placeholder="Last Name">
+        </div>
+        <input type="text" name="" id="image-url" placeholder="Image URL (Optional)">
+        <div id="div-02">
+            <input type="email" name="" id="email" placeholder="Email">
+            <input type="tel" name="" id="contact" placeholder="Contact">
+            <input type="number" name="" id="salary" placeholder="Salary">
+            <input type="date" name="" id="date">
+        </div>
+        <input type="text" name="" id="address" placeholder="Address">
+        <button id="submit-btn">Submit</button>
+        <button id="save-btn">Save</button>
+    </form> -->
+
+    <div id="employee-data">
+        <div id="employee-list">
+            <h3>Employee List</h3>
+            <hr>
+            <div></div>
+        </div>
+
+        <div id="employee-details">
+            <h3>Employee Information</h3>
+            <hr>
+            <div></div>
+        </div>
+    </div>
+    <script src="employee-management-system.js"></script>
+</body>
+
+</html>

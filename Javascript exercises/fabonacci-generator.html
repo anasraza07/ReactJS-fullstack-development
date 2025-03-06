@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabonacci generator</title>
+</head>
+
+<body>
+
+    <script>
+        function fabonacciGenerator(num) {
+            var output = [0, 1];
+
+            if (num === 1) {
+                output.pop();
+            } else {
+                while (num !== output.length) {
+                    output.push(output[output.length - 1] + output[output.length - 2]);
+                }
+            }
+
+            return output;
+        }
+        console.log(fabonacciGenerator(30));
+    </script>
+</body>
+
+</html>

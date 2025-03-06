@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing report</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Input:
+        const markeingReportJSON = '[{"campaign": "Facebook Ads", "impressions": 10000, "clicks": 500, "conversions": 50},{"campaign": "Google Ads", "impressions": 20000, "clicks": 1000, "conversions": 150}]'
+
+        // Output:
+        // Campaign: Facebook Ads | CTR: 5% | Conversion Rate: 10%
+        // Campaign: Google Ads | CTR: 5% | Conversion Rate: 15%
+
+        // ctr = clicks / impressions * 100
+        // conversion rate = conversions / clicks * 100
+
+        const marketingReport = JSON.parse(markeingReportJSON);
+        console.log(marketingReport)
+
+        // [
+        //     { campaign: 'Facebook Ads', impressions: 10000, clicks: 500, conversions: 50 },
+        //     { campaign: 'Google Ads', impressions: 20000, clicks: 1000, conversions: 150 }
+        // ]
+
+        for(let i = 0; i < marketingReport.length; i++){
+            const ctr = (marketingReport[i].clicks / marketingReport[i].impressions * 100).toFixed(2); 
+            const conversionRate = (marketingReport[i].conversions / marketingReport[i].clicks * 100).toFixed(2); 
+            const campaignName = marketingReport[i].campaign; 
+            console.log("Campaign: " + campaignName + " | CTR: " + ctr + "% | Conversion Rate: " + conversionRate + "%")
+        }
+
+    </script>
+</body>
+
+</html>

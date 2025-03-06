@@ -1,0 +1,144 @@
+INTRODUCTION TO HTML
+1. introduction to html
+2. the anatomy of an html tag
+3. what we are building - html personal site
+4. what is the html boilerplate
+5. how to structure text in html
+6. html lists
+7. html image elements
+8. html links and anchor tags
+
+INTERMEDIATE HTML
+6. html forms
+7. forms in practice - create a contact me form
+9. publish your website
+10. tip from angela - habit building with the calendar trick
+
+INTRODUCTION TO CSS
+1. introduction to css
+6. how to debug css code
+11. tip from angela - dealing with distractions
+
+INTRODUCTION TO JAVASCRIPT
+4. javascript variables
+5. javascript variables exercise
+7. javascript variables exercise solution
+8. naming and naming conventions for javascript variables
+
+javascript variable naming quiz dena hai
+
+10. string concatenation 
+11. string lengths and retrieving the number of characters
+12. slicing and extracting parts of a string
+13. challenge changing casing in text
+14. challenge changing string casing solution
+15. basic arithmetic and modulo operator in javascript
+16. incremenet and decrement expressions
+
+javascript numbers quiz dene hai
+
+18. functions part 1 creating and calling functions 
+19. functions part 1 challenge 
+20. the keral chess board solution
+21. a quick note about the next lesson
+22. functions part 2 parameters and arguments
+23. life in weeks coding exercise
+24. life in weeks solution
+25. functions part 3 outputs & return values
+26. challenge create a bmi calculator
+28. challenge bmi calculator solution
+javascript functions quiz dena hai
+30. tip from angela - set your expectations
+
+INTERMEDIATE JAVASCRIPT
+1. random number generation building a love calculator
+2. control statements using if-else conditionals & logic
+3. comparators and equality
+4. combining comparators
+6. leap year code challenge
+7. leap year challenge
+8. leap year solution
+9. collections working with javascript arrays
+10. adding elements and intermediate array techniques
+11. who is buying lunch code challenge
+12. who is buying lunch solution
+13. control statements while loops
+14. solution to the 99 bottles challenge
+15. control statements for loops
+16. the fibonacci code challenge
+17. fibonacci challenge.html
+18. fibonacci solution
+19. tip from angela - retrieval is how you learn
+
+ADVANCED JAVASCRIPT AND DOM MANIPULATION
+7. a deeper understanding of javascript objects
+9. objects, their methods and the dot notation
+
+APIS - APPLICATION PROGRAMMING INTERFACES
+4. what is json
+
+THE DOCUMENT OBJECT MODEL (DOM)
+1. adding javascript to websites
+2. introduction to the document object model (DOM)
+3. solution to the dom challenge
+4. selecting html elements with javascript
+5. manipulating and changing styles of html elements with javascript
+6. the seperation of concerns structure vs style vs behaviour
+7. text manipulation and the text content property
+8. manipulating html element attributes
+9. tip from angela - the 20 minute method
+
+APNA COLLEGE
+JAVASCRIPT PART 01 (1 - 20)
+1. introduction
+2. using the console
+3. what is variable
+4. data types in js
+
+
+
+13. navigation on page
+14. adding elements on page
+15. removing elements from page
+
+JAVASCRIPT PART 10 (1 - 11)
+1. dom events
+2. mouse pointer events
+3. event listeners
+4. activity
+5. event listeners for elements
+6. this in event listeners
+7. keyboard events
+8. form events
+9. extracting form data
+10. more events
+
+JAVASCRIPT PART 11 (1 - 11)
+1. js call stack
+2. visualizing the call stack
+3. breakpoints
+4. js is single threaded    
+5. callback hell
+6. setting up promises
+7. refactoring with promises
+8. then() and catch() methods
+9. promise chaining
+10. results and errors in promise
+11. refactoring old code
+
+JAVASCRIPT PART 12 (1 - 15)
+1. async functions
+2. await keyword
+3. handling rejections
+4. what is an api
+5. accessing some apis
+6. what is json
+7. accessing json data
+8. api testing tools
+9. what is ajax
+10. http verbs
+11. status codes
+12. adding information in urls
+13. http headers
+14. our first api request
+15. using fetch with async-await
