@@ -76,6 +76,16 @@ so achi convention ye hai ke single character or letter ke liye single qoute use
 aur agr kbhi string ke andr double qoute use krna ho so ham bahar ki taraf single qoute se string banayenge and vice versa
 same type ke qoutes ke andr same type ke qoutes nhi likh skte ye hamain error dega
 
+index = position
+plural of index is indices
+javascript main 0 based indexing follow hoti hai
+index ko square brackets main likh kr ham string ke individual characters ko access kr skte hain aur (.lenght - 1) ka use krke string ke last characters ko access kr skte hain
+agr kisi string main concatenate krden number ko to wo number bhi string main jaakr convert hojayega  
+
+undefined javascript main eik aesa variable hota hai jisko hamne ab tk koi value assign naa ki ho ya ham koi aesi value access krne ki koshish kr rahe hain jo sahi hai balke galat hai uski bhi type undefined hoti hai
+basically jb bhi javascript kehna chahta hai 'mujhe nhi pata' so wahan pr aapke paas aayega undefined
+null value ham intentionally assign krte hain jb kbhi hamain javascript ko bataana ho kisi variable ke liye ke iske andr koi value nhi hai so ham null set krte hain, null means absence of some value
+
 Programmers / computers always start counting from zero
 
 string.slice() krne se kitne characters slice hongay = iska quick shortcut hai upper bound - lower bound
