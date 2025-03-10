@@ -86,6 +86,25 @@ undefined javascript main eik aesa variable hota hai jisko hamne ab tk koi value
 basically jb bhi javascript kehna chahta hai 'mujhe nhi pata' so wahan pr aapke paas aayega undefined
 null value ham intentionally assign krte hain jb kbhi hamain javascript ko bataana ho kisi variable ke liye ke iske andr koi value nhi hai so ham null set krte hain, null means absence of some value
 
+console.log eik tareeqa hai apni javascript file ko browser ke console ke sth link krwaane ka yaani jb bhi koi chz javascript ke andr print krwaani hoti hai jo ham chahte hain browser ke console window pr dikhne lag jaye uske liye ham console.log ka use krte hain
+
+script tag ko closing body tag se just pehle likhna hi best practice hai taakay html elements saare load hojayen aur phr hi un pr actions lagaye jaaye through javascript
+
+template literals = are used to add embedded expressions in a string
+
+operators in js = arithmetic(+, -, *, /, %, **), unary(++, --),    assignment(=, +=, -=, *=, /=, %= etc.), comparison, logical
+comparison operators 2 values ko compare krke true ya false dete hain aur logical operators bhi hamain value true ya value false laakr dete hain
+exclamation mark '!' ko programming ke andr generally not kaha jaata hai
+equal to operator compares only values, not type jbke triple equal to operator values aur type dono ko compare krta hai
+logical operators = used to combine expressions
+
+Comparison of non-numbers =  eik valid comparison hota hai based on unicode values
+Unique value (unicode) = keyboard pe hr key ka kch unique code hota hai
+generally ham ye yaad rkh skte hain ke a < b < c < d ...., A < B < C < D ..., a > A, 
+b > b; 'a' => 61, 'b' => 62 ..., 'A' => 41, 'B' => 42, ... etc.
+
+jb bht saare expressions ya bht saare logical operators hon to unko solve krne ke liye ham left to right move krte hain
+
 Programmers / computers always start counting from zero
 
 string.slice() krne se kitne characters slice hongay = iska quick shortcut hai upper bound - lower bound
